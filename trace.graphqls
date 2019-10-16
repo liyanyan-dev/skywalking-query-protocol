@@ -127,8 +127,6 @@ type SegmentAggBrief {
     total: Int!
 }
 
-
-
 type  ListTraces {
     traces: [Trace!]
     total: Int!
@@ -138,9 +136,14 @@ input ListTraceIdCondition {
     traceIds: [String!]!
 }
 
+type Version {
+    version:String!
+}
+
 extend type Query {
     queryBasicTraces(condition: TraceQueryCondition): TraceBrief
     queryTrace(traceId: ID!): Trace
     querySegments(condition: TraceQueryCondition): SegmentAggBrief
     queryTraces(condition: ListTraceIdCondition): ListTraces
+    queryVersion: Version
 }
